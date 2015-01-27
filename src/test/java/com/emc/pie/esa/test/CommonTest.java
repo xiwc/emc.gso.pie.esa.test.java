@@ -66,4 +66,17 @@ public class CommonTest {
 		System.out.println(java.lang.Boolean.TYPE.isPrimitive());
 	}
 
+	@Test
+	public void test02()
+	{
+		System.out.println(HttpMethod.GET.name());
+		System.out.println(HttpMethod.GET.toString());
+	}
+
+	public static enum HttpMethod
+	{
+		GET, POST, PUT, DELETE
+
+	}
+
 }
