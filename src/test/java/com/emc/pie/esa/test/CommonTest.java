@@ -1,5 +1,11 @@
 package com.emc.pie.esa.test;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -77,6 +83,44 @@ public class CommonTest {
 	{
 		GET, POST, PUT, DELETE
 
+	}
+
+	@Test
+	public void test03()
+	{
+		List<String> list = Arrays.asList(new String[0]);
+
+		System.out.println(list.size());
+
+		Assert.assertEquals(list.size(), 0);
+
+		try
+		{
+			Arrays.asList(new String[1]).add("test");
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			Assert.assertTrue(e instanceof UnsupportedOperationException);
+		}
+	}
+
+	@Test
+	public void test04()
+	{
+		ToStringBuilder builder = new ToStringBuilder(this,
+				ToStringStyle.SHORT_PREFIX_STYLE);
+		builder.append("name", "test name");
+		builder.append("age", 10);
+
+		ToStringBuilder builder2 = new ToStringBuilder(this,
+				ToStringStyle.SHORT_PREFIX_STYLE);
+		builder2.append("name2", "test name");
+		builder2.append("age2", 10);
+
+		builder.appendToString(builder2.toString());
+
+		System.out.println(builder.toString());
 	}
 
 }
