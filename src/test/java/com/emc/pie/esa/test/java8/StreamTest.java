@@ -114,5 +114,15 @@ public class StreamTest
 
 		Assert.assertTrue(Stream.of("1,2,3", "4,5,6", "7,8,9").allMatch(
 				s -> s.split(",").length == 3));
+
+		String sss = null;
+		String ss = Stream.of("11", "22", "33").reduce(sss, (a, b) ->
+		{
+			System.out.println(String.format("%s-%s", a, b));
+			return a + b;
+		});
+
+		System.out.println(sss);
+		System.out.println(ss);
 	}
 }
