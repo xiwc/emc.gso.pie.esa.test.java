@@ -123,4 +123,8 @@ public class CommonTest {
 		System.out.println(builder.toString());
 	}
 
+	@Test
+	public void test05() {
+		Assert.assertFalse(null instanceof Object);
+	}
 }
